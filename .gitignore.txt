@@ -1,0 +1,8 @@
+/UI/PlannerMob/PlannerMob.Android/bin/Debug
+/UI/PlannerMob/PlannerMob.Android/obj/Debug
+/UI/PlannerMob/PlannerMob.Android/bin/
+/UI/PlannerMob/PlannerMob.Android/obj/
+/UI/PlannerMob/.vs
+bin
+obj
+.vs
