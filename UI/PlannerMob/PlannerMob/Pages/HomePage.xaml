@@ -11,7 +11,7 @@
                    HorizontalOptions="CenterAndExpand" />
             </StackLayout>
 
-            <Button Text="Dodato dugme" />
+            <Button Text="Dodato dugme" Clicked="Button_Clicked"    />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:PlannerMob.ViewModels"
+             x:Class="PlannerMob.Pages.RegistrationPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="backgroundLogin.png">
+    <ContentPage.BindingContext>
+        <viewModel:RegistrationPageViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="16">
+
+                <StackLayout Orientation="Horizontal" 
+                             HorizontalOptions="CenterAndExpand">
+                    <Label Text="Prijava na sistem" 
+                           FontSize="Body"
+                           BackgroundColor="{Binding BckSignInColor}"
+                           TextColor="White"
+                           Padding="12">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchMode}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Text="Registracija" 
+                           Padding="12"
+                           BackgroundColor="{Binding BckSignUpColor}"
+                           TextColor="White"
+                           FontSize="Body">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchMode}" 
+                                                  CommandParameter="SignUp"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                </StackLayout>
+
+                <Image Source="logoTeams.jpg" 
+                       Margin="0,0,0,0"
+                       VerticalOptions="CenterAndExpand"
+                       HeightRequest="150"
+                       WidthRequest="150"/>
+
+                <StackLayout IsVisible="{Binding IsRegistrationMode, Converter={StaticResource InverseBoolConverter}}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Spacing="10">
+                    <Entry Placeholder="Korisničko ime"/>
+                    <Entry Placeholder="Lozinka" />
+
+                    <Button Text="Prijava na sistem" 
+                            CornerRadius="10"
+                            Margin="0,16,0,0"/>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding IsRegistrationMode}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Spacing="10">
+                    <Entry Placeholder="Ime"/>
+                    <Entry Placeholder="Prezime"/>
+                    <Entry Placeholder="Naziv obrazovne ustanove" />
+                    <Entry Placeholder="Email"/>
+                    <Entry Placeholder="Sedište" />
+                    <Entry Placeholder="Korisničko ime"/>
+                    <Entry Placeholder="Lozinka"/>
+
+                    <Button Text="Registracija"
+                            CornerRadius="10"
+                            Margin="0,16,0,0"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

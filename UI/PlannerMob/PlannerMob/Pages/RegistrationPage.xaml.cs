@@ -10,16 +10,19 @@ using Xamarin.Forms.Xaml;
 namespace PlannerMob.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class RegistrationPage : ContentPage
     {
-        public HomePage()
+        public RegistrationPage()
         {
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-
+            base.OnAppearing();
+            viewModel.IsRegistrationMode = false;
+            viewModel.BckSignInColor = Color.Blue;
+            viewModel.BckSignUpColor = Color.Transparent;
         }
     }
 }

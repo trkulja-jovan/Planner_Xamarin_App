@@ -61,6 +61,12 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <FlyoutItem Route="registrationPage">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate pages:RegistrationPage}" />
+        </Tab>
+    </FlyoutItem>
+
     <FlyoutItem Route="homePage">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />

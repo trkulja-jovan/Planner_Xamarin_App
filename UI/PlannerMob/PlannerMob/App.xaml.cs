@@ -11,7 +11,7 @@ namespace PlannerMob
         }
         protected override void OnStart()
         {
-            Shell.Current.GoToAsync("//homePage");
+            Shell.Current.GoToAsync("//registrationPage");
         }
 
         protected override void OnSleep()
