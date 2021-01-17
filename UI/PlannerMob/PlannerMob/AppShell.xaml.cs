@@ -11,7 +11,7 @@ namespace PlannerMob
 
         private async void MenuItem_Clicked(object sender, System.EventArgs e)
         {
-            await Shell.Current.DisplayAlert("Title", "Poruka", "Ok");
+            await Shell.Current.GoToAsync("//registrationPage");
         }
     }
 }

@@ -48,11 +48,14 @@
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="FillAndExpand"
                              Spacing="10">
-                    <Entry Placeholder="Korisničko ime"/>
-                    <Entry Placeholder="Lozinka" />
+                    <Entry Placeholder="Korisničko ime"
+                           Text="{Binding Username}" />
+                    <Entry Placeholder="Lozinka" 
+                           Text="{Binding Password}"/>
 
                     <Button Text="Prijava na sistem" 
                             CornerRadius="10"
+                            Command="{Binding SignInCommand}"
                             Margin="0,16,0,0"/>
                 </StackLayout>
 
@@ -60,17 +63,26 @@
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="FillAndExpand"
                              Spacing="10">
-                    <Entry Placeholder="Ime"/>
-                    <Entry Placeholder="Prezime"/>
-                    <Entry Placeholder="Naziv obrazovne ustanove" />
-                    <Entry Placeholder="Email"/>
-                    <Entry Placeholder="Sedište" />
-                    <Entry Placeholder="Korisničko ime"/>
-                    <Entry Placeholder="Lozinka"/>
+                    <Entry Placeholder="Ime"
+                           Text="{Binding Name}"/>
+                    <Entry Placeholder="Prezime"
+                           Text="{Binding Surname}"/>
+                    <Entry Placeholder="Naziv obrazovne ustanove" 
+                           Text="{Binding School}"/>
+                    <Entry Placeholder="Email"
+                           Text="{Binding Email}"/>
+                    <Entry Placeholder="Sedište" 
+                           Text="{Binding Hometown}"/>
+                    <Entry Placeholder="Korisničko ime"
+                           Text="{Binding Username}"/>
+                    <Entry Placeholder="Lozinka"
+                           IsPassword="True"
+                           Text="{Binding Password}"/>
 
                     <Button Text="Registracija"
                             CornerRadius="10"
-                            Margin="0,16,0,0"/>
+                            Margin="0,16,0,0"
+                            Command="{Binding Register}"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
