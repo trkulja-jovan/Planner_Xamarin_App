@@ -12,6 +12,47 @@
             </StackLayout>
 
             <Button Text="Dodato dugme" Clicked="Button_Clicked"    />
+
+
+            <StackLayout Margin="10">
+                <Label Text="Izaberite datume trajanja konferencije"
+               Style="{DynamicResource TitleStyle}"
+               Margin="0, 20"
+               HorizontalTextAlignment="Center" />
+
+                <Label Text="Datum pocetka konferencije:" />
+
+                <DatePicker x:Name="startDatePicker"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    DateSelected="OnDateSelected" />
+
+                <Label Text="Datum kraja konferencije:" />
+
+                <DatePicker x:Name="endDatePicker"
+                    MinimumDate="{Binding Source={x:Reference startDatePicker},
+                                          Path=Date}"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    DateSelected="OnDateSelected" />
+
+                <StackLayout Orientation="Horizontal"
+                     Margin="0, 0, 0, 30">
+                    <Label Text="Oba datuma su ukljucena: "
+                   VerticalOptions="Center" />
+                    <Switch x:Name="includeSwitch"
+                    Toggled="OnSwitchToggled" />
+                </StackLayout>
+
+                <Label x:Name="resultLabel"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center" />
+
+            </StackLayout>
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
