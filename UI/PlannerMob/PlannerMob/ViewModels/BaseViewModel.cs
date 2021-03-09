@@ -11,7 +11,7 @@ namespace PlannerMob.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected UserEntity UserEntity { get; set; }
+        protected UserEntity UserEntity { get; set; } = new UserEntity();
 
         protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "", Action onChanged = null)
         {

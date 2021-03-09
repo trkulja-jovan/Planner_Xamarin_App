@@ -1,4 +1,5 @@
 ﻿using PlannerMob.Entities;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -78,18 +79,25 @@ namespace PlannerMob.ViewModels
         {
             SignInCommand = new Command(async () =>
             {
-                var usr = UserEntity?.Username;
-                var pass = UserEntity?.Password;
-
-                if(Username.Equals(usr) && Password.Equals(pass))
+                try
                 {
-                    Username = "";
-                    Password = "";
+                    var usr = UserEntity?.Username;
+                    var pass = UserEntity?.Password;
 
-                    await Shell.Current.GoToAsync("//homePage");
-                } else
+                    if (Username.Equals(usr) && Password.Equals(pass))
+                    {
+                        Username = "";
+                        Password = "";
+
+                        await Shell.Current.GoToAsync("//homePage");
+                    }
+                    else
+                    {
+                        await Shell.Current.DisplayAlert("Greska", "Pogresni podaci", "Cancel");
+                    }
+                } catch(Exception e)
                 {
-                    await Shell.Current.DisplayAlert("Greska", "Pogresni podaci", "Cancel");
+                    System.Diagnostics.Debug.Write("Izuzetak -> " + e.StackTrace);
                 }
 
             });
