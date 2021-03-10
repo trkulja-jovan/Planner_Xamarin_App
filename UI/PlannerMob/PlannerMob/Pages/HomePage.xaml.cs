@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using PlannerMob.Entities;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,9 +15,14 @@ namespace PlannerMob.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
+        public IList<Course> Courses { get; set; }
+
         public HomePage()
         {
             InitializeComponent();
+            LoadPicker();
+
+            
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -35,8 +43,18 @@ namespace PlannerMob.Pages
             TimeSpan timeSpan = endDatePicker.Date - startDatePicker.Date +
                 (includeSwitch.IsToggled ? TimeSpan.FromDays(1) : TimeSpan.Zero);
 
-            resultLabel.Text = String.Format("{0} day{1} between dates",
-                                                timeSpan.Days, timeSpan.Days == 1 ? "" : "s");
+            resultLabel.Text = String.Format("{0} dan",
+                                                timeSpan.Days, timeSpan.Days == 1 ? "" : "a");
+        }
+
+
+        void LoadPicker()
+        {
+            Courses = new ObservableCollection<Course>();
+            Courses.Add(new Course { CourseID = 1, CourseName = "Seminarski Rad C"});
+            Courses.Add(new Course { CourseID = 1, CourseName = "Baze Podataka 2" });
+            Courses.Add(new Course { CourseID = 1, CourseName = "Uvod u programiranje" });
+            Courses.Add(new Course { CourseID = 1, CourseName = "Kombinatorika, verovatnoca i statistika" });
         }
 
 

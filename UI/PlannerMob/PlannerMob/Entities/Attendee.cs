@@ -4,18 +4,16 @@ using System.Text;
 
 namespace PlannerMob.Entities
 {
-    class Attendee : UserEntity
+    public class Attendee : UserEntity
     {
         public Attendee(){}
 
-        //public string Name { get; set; }
-        //public string Surname { get; set; }
-        public ActionA Action { get; set; }
+        public ActionAttendee Action { get; set; }
 
         public DateTimeOffset TimeStamp { get; set; }
     }
 
-    public enum ActionA
+    public enum ActionAttendee
     {
         Joined, 
         Joined_before,
