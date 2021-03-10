@@ -28,7 +28,7 @@
                     <Label Text="Registracija" 
                            Padding="12"
                            BackgroundColor="{Binding BckSignUpColor}"
-                           TextColor="White"
+                           TextColor="{Binding RegTextColor}"
                            FontSize="Body">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SwitchMode}" 
