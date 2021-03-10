@@ -38,5 +38,8 @@ namespace PlannerMob.Pages
             resultLabel.Text = String.Format("{0} day{1} between dates",
                                                 timeSpan.Days, timeSpan.Days == 1 ? "" : "s");
         }
+
+
+   
     }
 }

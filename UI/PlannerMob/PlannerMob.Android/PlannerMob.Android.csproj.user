@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>Samsung SM-G960F</SelectedDevice>
     <AndroidDesignerPreferredTheme>Theme.AppCompat.Light.NoActionBar</AndroidDesignerPreferredTheme>
+    <ActiveDebugProfile>Samsung SM-G960F</ActiveDebugProfile>
   </PropertyGroup>
 </Project>
