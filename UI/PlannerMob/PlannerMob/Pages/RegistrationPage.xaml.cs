@@ -23,6 +23,7 @@ namespace PlannerMob.Pages
             viewModel.IsRegistrationMode = false;
             viewModel.BckSignInColor = Color.Blue;
             viewModel.BckSignUpColor = Color.Transparent;
+            viewModel.RegTextColor = Color.Black;
         }
     }
 }

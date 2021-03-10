@@ -17,6 +17,7 @@ namespace PlannerMob.ViewModels
         private string surname;
         private Color bckIn;
         private Color bckUp;
+        private Color regTextCol;
 
         public string Username
         {
@@ -69,6 +70,12 @@ namespace PlannerMob.ViewModels
         {
             get => bckUp;
             set => SetProperty(ref bckUp, value);
+        }
+
+        public Color RegTextColor
+        {
+            get => regTextCol;
+            set => SetProperty(ref regTextCol, value);
         }
 
         public ICommand SwitchMode { get; set; }
@@ -138,6 +145,7 @@ namespace PlannerMob.ViewModels
             IsRegistrationMode = true;
             BckSignUpColor = Color.Blue;
             BckSignInColor = Color.Transparent;
+            RegTextColor = Color.White;
             Username = "";
             Password = "";
         }
@@ -147,6 +155,7 @@ namespace PlannerMob.ViewModels
             IsRegistrationMode = false;
             BckSignInColor = Color.Blue;
             BckSignUpColor = Color.Transparent;
+            RegTextColor = Color.Black;
         }
     }
 }
