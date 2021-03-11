@@ -11,6 +11,12 @@ namespace PlannerMob.Entities
     {
         public int CourseID { get; set; }
         public string CourseName { get; set; }
+
+        public override string ToString()
+        {
+            return this.CourseName;
+        }
+
     }
 
    
