@@ -12,4 +12,6 @@ namespace PlannerMob.Entities
         public int CourseID { get; set; }
         public string CourseName { get; set; }
     }
+
+   
 }

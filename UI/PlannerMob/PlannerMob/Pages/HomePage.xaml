@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:PlannerMob.Pages"
              x:Class="PlannerMob.Pages.HomePage">
-    <ContentPage.BindingContext>
-        <local:HomePage></local:HomePage>
-    </ContentPage.BindingContext>
+ 
     <ContentPage.Content>
         
         <StackLayout>
@@ -44,10 +41,6 @@
                FontAttributes="Bold"
                HorizontalTextAlignment="Center" />
 
-            </StackLayout>
-
-            <StackLayout Spacing="20" Padding="15">
-                <Picker ItemDisplayBinding="{Binding CourseName}" x:Name="CourseEntry" Title="Izaberite predmet" ItemsSource="{Binding Courses}"></Picker>
             </StackLayout>
 
         </StackLayout>
