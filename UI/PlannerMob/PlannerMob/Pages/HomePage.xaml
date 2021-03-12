@@ -42,6 +42,11 @@
                HorizontalTextAlignment="Center" />
 
             </StackLayout>
+            <StackLayout>
+
+                <Picker x:Name="MainPicker"/>
+
+            </StackLayout>
 
         </StackLayout>
     </ContentPage.Content>

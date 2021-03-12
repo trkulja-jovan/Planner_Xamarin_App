@@ -17,18 +17,12 @@ namespace PlannerMob.Pages
     {
         public IList<Course> Courses { get; set; }
 
-        private Picker picker;
-        private Button button;
-        private Entry entry;
+  
 
         public HomePage()
         {
             InitializeComponent();
-            //LoadPicker();
-
-            createPicker();
-
-            
+            createPicker();    
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -54,38 +48,24 @@ namespace PlannerMob.Pages
         }
 
 
-        void LoadPicker()
+        private void LoadPicker()
         {
             Courses = new ObservableCollection<Course>();
             Courses.Add(new Course { CourseID = 1, CourseName = "Seminarski Rad C"});
-            Courses.Add(new Course { CourseID = 1, CourseName = "Baze Podataka 2" });
-            Courses.Add(new Course { CourseID = 1, CourseName = "Uvod u programiranje" });
-            Courses.Add(new Course { CourseID = 1, CourseName = "Kombinatorika, verovatnoca i statistika" });
-        }
+            Courses.Add(new Course { CourseID = 2, CourseName = "Baze Podataka 2" });
+            Courses.Add(new Course { CourseID = 3, CourseName = "Uvod u programiranje" });
+            Courses.Add(new Course { CourseID = 4, CourseName = "Kombinatorika, verovatnoca i statistika" });
+        } 
 
-        void createPicker()
+        private void createPicker()
         {
             LoadPicker();
 
-            StackLayout stackLayout = new StackLayout();
-            this.picker = new Picker();
-            picker.Title = "Izaberite predmet";
-            picker.ItemsSource = (System.Collections.IList)Courses;
-            stackLayout.Children.Add(picker);
-
-            this.button = new Button();
-            button.Text = "OK";
-            stackLayout.Children.Add(button);
-
-          
-
-            Content = stackLayout;
+            MainPicker.Title = "Izaberite predmet";
+            MainPicker.ItemsSource = (System.Collections.IList)Courses;
+           
         }
 
-        private void buttonClicked(object sender, EventArgs s)
-        {
-            entry.Text = picker.SelectedItem.ToString();
-        }
         
 
 
