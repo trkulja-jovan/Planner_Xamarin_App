@@ -12,10 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="Components\" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="ContentViews\HeaderContentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\AddCSV.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:PlannerMob.ContentViews"
        xmlns:pages="clr-namespace:PlannerMob.Pages"
+  
        Title="PlannerMob"
        x:Class="PlannerMob.AppShell">
+
+    <Shell.FlyoutHeader>
+
+        <local:HeaderContentView/>
+    </Shell.FlyoutHeader>
+       
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -75,5 +83,10 @@
 
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked" >
     </MenuItem>
+    
+    
+    <ShellContent Title="Dodaj CSV" Icon ="csv.png" IsTabStop="True" ContentTemplate="{DataTemplate pages:AddCSV}" />
+       
+
 
 </Shell>
