@@ -11,7 +11,50 @@
 
         <local:HeaderContentView/>
     </Shell.FlyoutHeader>
-       
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Icon}"
+                       Margin="5,16,0,20" 
+                       HeightRequest="25"
+                       WidthRequest="25"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontFamily="LatoBold"
+                       TextColor="White"
+                       VerticalTextAlignment="Center"
+                       Margin="0,16,0,20"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Icon}"
+                       Margin="12,16,0,20" 
+                       HeightRequest="28"
+                       WidthRequest="28"
+                       HorizontalOptions="CenterAndExpand"/>
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       TextColor="White"
+                       FontFamily="LatoBold"
+                       VerticalTextAlignment="Center"
+                       Margin="0,16,0,20"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -21,7 +64,7 @@
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
@@ -33,19 +76,19 @@
                 <Setter Property="TextColor" Value="White"></Setter>
             </Style>
             <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
-                <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
+                <Setter Property="BackgroundColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="White" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -59,7 +102,7 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -69,24 +112,32 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <FlyoutItem Route="registrationPage">
+    <FlyoutItem Route="registrationPage" IsTabStop="False" IsVisible="False">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate pages:RegistrationPage}" />
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Route="homePage">
+    <FlyoutItem Route="homePage"
+                Title="Početna stranica"
+                Icon="ic_action_home_page.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
         </Tab>
     </FlyoutItem>
 
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked" >
-    </MenuItem>
-    
-    
-    <ShellContent Title="Dodaj CSV" Icon ="csv.png" IsTabStop="True" ContentTemplate="{DataTemplate pages:AddCSV}" />
-       
+    <FlyoutItem Title="Dodaj CSV" 
+                Icon ="csv.png" 
+                IsTabStop="True" >
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate pages:AddCSV}" />
+        </Tab>
+    </FlyoutItem>
 
+    <MenuItem Text="Odjava" 
+              StyleClass="MenuItemLayoutStyle" 
+              Clicked="MenuItem_Clicked"
+              IconImageSource="ic_action_exit_to_app.png">
+    </MenuItem>
 
 </Shell>

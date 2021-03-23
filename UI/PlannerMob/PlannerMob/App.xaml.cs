@@ -7,6 +7,7 @@ namespace PlannerMob
         public App()
         {
             InitializeComponent();
+            Device.SetFlags(new string[] { "Brush_Experimental" });
             MainPage = new AppShell();
         }
         protected override void OnStart()
