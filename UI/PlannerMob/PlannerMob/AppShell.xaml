@@ -112,11 +112,11 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <FlyoutItem Route="registrationPage" IsTabStop="False" IsVisible="False">
+
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate pages:RegistrationPage}" />
         </Tab>
-    </FlyoutItem>
+
 
     <FlyoutItem Route="homePage"
                 Title="Početna stranica"
