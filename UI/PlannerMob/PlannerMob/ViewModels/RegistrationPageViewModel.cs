@@ -1,4 +1,5 @@
 ﻿using PlannerMob.Entities;
+using PlannerMob.Pages;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -96,7 +97,7 @@ namespace PlannerMob.ViewModels
                         Username = "";
                         Password = "";
 
-                        await Shell.Current.GoToAsync("//homePage");
+                        await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
                     }
                     else
                     {

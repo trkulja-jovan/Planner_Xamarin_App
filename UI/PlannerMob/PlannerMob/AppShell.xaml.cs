@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using PlannerMob.Pages;
+using Xamarin.Forms;
 
 namespace PlannerMob
 {
@@ -9,9 +10,7 @@ namespace PlannerMob
             InitializeComponent();
         }
 
-        private async void MenuItem_Clicked(object sender, System.EventArgs e)
-        {
-            await Shell.Current.GoToAsync("//registrationPage");
-        }
+        private async void MenuItem_Clicked(object sender, System.EventArgs e) => await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
+        
     }
 }

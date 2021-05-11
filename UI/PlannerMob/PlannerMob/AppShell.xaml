@@ -114,24 +114,18 @@
 
 
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate pages:RegistrationPage}" />
+            <ShellContent Route="RegistrationPage" ContentTemplate="{DataTemplate pages:RegistrationPage}" />
         </Tab>
 
 
-    <FlyoutItem Route="homePage"
-                Title="Početna stranica"
+    <FlyoutItem Title="Početna stranica"
                 Icon="ic_action_home_page.png">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
-        </Tab>
+            <ShellContent Route="HomePage" ContentTemplate="{DataTemplate pages:HomePage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Dodaj CSV" 
-                Icon ="csv.png" 
-                IsTabStop="True" >
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate pages:AddCSV}" />
-        </Tab>
+                Icon ="csv.png" >
+            <ShellContent Route="AddCSV" ContentTemplate="{DataTemplate pages:AddCSV}" />
     </FlyoutItem>
 
     <MenuItem Text="Odjava" 

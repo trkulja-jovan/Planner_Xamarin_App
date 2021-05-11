@@ -12,12 +12,14 @@ namespace PlannerMob.Entities
         public int CourseID { get; set; }
         public string CourseName { get; set; }
 
-        public override string ToString()
+        private Course(int courseId, string courseName)
         {
-            return this.CourseName;
+            this.CourseID = courseId;
+            this.CourseName = courseName;
         }
 
-    }
+        public static Course CreateCourse(int courseId, string courseName) => new Course(courseId, courseName);
 
-   
+        public override string ToString() => this.CourseName;
+    }
 }
