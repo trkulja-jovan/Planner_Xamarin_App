@@ -1,4 +1,5 @@
 ﻿using PlannerMob.Entities;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,6 +20,11 @@ namespace PlannerMob.Pages
         {
             base.OnAppearing();
             viewModel.InitializePage();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AttendeeView());
         }
     }
 }

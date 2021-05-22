@@ -50,6 +50,17 @@
 
             </StackLayout>
 
+            <StackLayout>
+
+   
+
+                <Button Text="Demo za ucesnike!"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked"/>
+
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

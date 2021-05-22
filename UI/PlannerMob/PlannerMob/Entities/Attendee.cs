@@ -11,6 +11,8 @@ namespace PlannerMob.Entities
         public ActionAttendee Action { get; set; }
 
         public DateTimeOffset TimeStamp { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 
     public enum ActionAttendee
