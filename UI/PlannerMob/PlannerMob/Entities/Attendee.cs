@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace PlannerMob.Entities
 {
@@ -10,9 +11,10 @@ namespace PlannerMob.Entities
 
         public ActionAttendee Action { get; set; }
 
-        public DateTimeOffset TimeStamp { get; set; }
+        public DateTime TimeStamp { get; set; }
 
-        public string ImageUrl { get; set; }
+        //public string ImageUrl { get; set; }
+        public ImageSource ImageUrl { get; set; }
     }
 
     public enum ActionAttendee

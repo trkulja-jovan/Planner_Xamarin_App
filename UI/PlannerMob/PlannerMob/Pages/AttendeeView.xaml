@@ -5,20 +5,16 @@
              x:Class="PlannerMob.Pages.AttendeeView"
              Title="Lista ucesnika">
     <ContentPage.BindingContext>
-        <vm:AttendeeViewModel/>
+        <vm:AttendeeViewModel x:Name="viewModel"/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <CollectionView ItemsSource="{Binding Attendees}">
+        <CollectionView ItemsSource="{Binding Attendees}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid Margin="0,12,0,0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
@@ -26,20 +22,22 @@
                                    WidthRequest="90" HeightRequest="90"
                                    Grid.Column="0"/>
 
-                            <StackLayout Orientation="Vertical" Grid.Column="1">
-                                <Label Text="{Binding Name}" FontSize="Title"/>
-                                <Label Text="{Binding Surname}" FontSize="Title"/>
+                            <StackLayout Orientation="Vertical" Grid.Column="1" VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding Name}" FontSize="Body"/>
+                                <Label Text="{Binding Surname}" FontSize="Body"/>
                             </StackLayout>
-                            <StackLayout Orientation="Vertical" Grid.Column="2">
-                                <Label Text="{Binding Action}" FontSize="Title"/>
+                            
+                            <StackLayout Orientation="Vertical" Grid.Column="2" VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding Action}" FontSize="Body"/>
                             </StackLayout>
-                            <StackLayout Orientation="Vertical" Grid.Column="3">
-                                <Label Text="{Binding TimeStamp}" FontSize="Title"/>
+                            
+                            <StackLayout Orientation="Vertical" Grid.Column="3" VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding TimeStamp}" FontSize="Body"/>
                             </StackLayout>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

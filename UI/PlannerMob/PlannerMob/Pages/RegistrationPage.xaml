@@ -18,7 +18,7 @@
                     <Label Text="Prijava na sistem" 
                            FontSize="Body"
                            BackgroundColor="{Binding BckSignInColor}"
-                           TextColor="White"
+                           TextColor="{AppThemeBinding Dark=White, Light=White}"
                            Padding="12">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding SwitchMode}"/>

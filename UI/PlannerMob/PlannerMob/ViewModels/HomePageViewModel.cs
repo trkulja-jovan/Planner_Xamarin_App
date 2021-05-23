@@ -65,6 +65,7 @@ namespace PlannerMob.ViewModels
         {
             Device.InvokeOnMainThreadAsync(() =>
             {
+                Courses.Clear();
                 PickerTitle = "Izaberite predmet";
                 SelectedStartDate = DateTime.Now;
                 SelectedEndDate = DateTime.Now;

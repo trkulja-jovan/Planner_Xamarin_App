@@ -22,9 +22,6 @@ namespace PlannerMob.Pages
             viewModel.InitializePage();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AttendeeView());
-        }
+        private async void Button_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync($"{nameof(AttendeeView)}");
     }
 }

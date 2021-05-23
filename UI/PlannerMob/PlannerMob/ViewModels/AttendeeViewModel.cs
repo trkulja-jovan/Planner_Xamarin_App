@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PlannerMob.Entities;
+﻿using PlannerMob.Entities;
 using PlannerMob.Service;
+using System.Collections.ObjectModel;
 
 namespace PlannerMob.ViewModels
 {
-    class AttendeeViewModel
+    public class AttendeeViewModel : BaseViewModel
     {
-        public List<Attendee> Attendees { get; set; }
+        private ObservableCollection<Attendee> _attendees = new ObservableCollection<Attendee>();
+        public ObservableCollection<Attendee> Attendees 
+        { 
+            get => _attendees; 
+            set => SetProperty(ref _attendees, value); 
+        }
+
+        private AttendeeService _attendeeService;
 
         public AttendeeViewModel()
         {
-            Attendees = new AttendeeService().GetAttendeeList();
+            _attendeeService = new AttendeeService();
         }
+
+        internal void OnAppearing() => _attendeeService.GetAttendeeList().ForEach(attendee => Attendees.Add(attendee));
     }
 }

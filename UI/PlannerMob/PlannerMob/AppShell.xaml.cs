@@ -8,6 +8,7 @@ namespace PlannerMob
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute($"{nameof(AttendeeView)}", typeof(AttendeeView));
         }
 
         private async void MenuItem_Clicked(object sender, System.EventArgs e) => await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
