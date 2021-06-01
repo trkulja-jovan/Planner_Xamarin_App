@@ -9,7 +9,7 @@ namespace PlannerMob.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public IList<Course> Courses { get; set; }
+      
 
         public HomePage()
         {

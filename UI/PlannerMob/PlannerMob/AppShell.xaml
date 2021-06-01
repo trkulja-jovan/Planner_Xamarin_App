@@ -123,10 +123,7 @@
             <ShellContent Route="HomePage" ContentTemplate="{DataTemplate pages:HomePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Dodaj CSV" 
-                Icon ="csv.png" >
-            <ShellContent Route="AddCSV" ContentTemplate="{DataTemplate pages:AddCSV}" />
-    </FlyoutItem>
+ 
 
     <MenuItem Text="Odjava" 
               StyleClass="MenuItemLayoutStyle" 

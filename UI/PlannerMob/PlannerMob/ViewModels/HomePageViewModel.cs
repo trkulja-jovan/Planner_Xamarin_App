@@ -9,7 +9,7 @@ namespace PlannerMob.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
     {
-        private ObservableCollection<string> _courses = new ObservableCollection<string>();
+        
         private DateTime selectedStartDate;
         private DateTime selectedEndDate;
 
@@ -55,21 +55,16 @@ namespace PlannerMob.ViewModels
             }
         }
 
-        public ObservableCollection<string> Courses
-        {
-            get => _courses;
-            set => SetProperty(ref _courses, value);
-        }
+  
 
         internal void InitializePage()
         {
             Device.InvokeOnMainThreadAsync(() =>
             {
-                Courses.Clear();
-                PickerTitle = "Izaberite predmet";
+            
                 SelectedStartDate = DateTime.Now;
                 SelectedEndDate = DateTime.Now;
-                FillCoursesList();
+          
             });
         }
 
@@ -80,12 +75,6 @@ namespace PlannerMob.ViewModels
             LabelCaptionText = String.Format("{0} dan", timeSpan.Days, timeSpan.Days == 1 ? "" : "a");
         }
 
-        private void FillCoursesList()
-        {
-            Courses.Add("Seminarski rad C");
-            Courses.Add("Baze podataka 2");
-            Courses.Add("Uvod u programiranje");
-            Courses.Add("Kombinatorika, verovatnoca i statistika");
-        }
+       
     }
 }
