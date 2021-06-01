@@ -1,8 +1,4 @@
-﻿using PlannerMob.Entities;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System;
 using Xamarin.Forms;
 
 namespace PlannerMob.ViewModels
@@ -55,16 +51,12 @@ namespace PlannerMob.ViewModels
             }
         }
 
-  
-
         internal void InitializePage()
         {
             Device.InvokeOnMainThreadAsync(() =>
             {
-            
                 SelectedStartDate = DateTime.Now;
                 SelectedEndDate = DateTime.Now;
-          
             });
         }
 
@@ -72,9 +64,11 @@ namespace PlannerMob.ViewModels
         {
             var timeSpan = SelectedEndDate.Subtract(SelectedStartDate) + (IsBothDatesEnabled ? TimeSpan.FromDays(1) : TimeSpan.Zero);
 
-            LabelCaptionText = String.Format("{0} dan", timeSpan.Days, timeSpan.Days == 1 ? "" : "a");
-        }
+            if (timeSpan.Days <= 0)
+                return;
 
-       
+            var text = timeSpan.Days > 1 ? "dana" : "dan";
+            LabelCaptionText = $"{timeSpan.Days}" + " " + text;
+        }
     }
 }

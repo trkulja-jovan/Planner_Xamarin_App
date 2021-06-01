@@ -13,7 +13,7 @@ namespace PlannerMob.Entities
 
         public DateTime TimeStamp { get; set; }
 
-        public ImageSource ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
     }
 
     public enum ActionAttendee

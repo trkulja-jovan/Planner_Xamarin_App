@@ -105,7 +105,7 @@ namespace PlannerMob.ViewModels
                     }
                 } catch(Exception e)
                 {
-                    System.Diagnostics.Debug.Write("Izuzetak -> " + e.StackTrace);
+                    System.Diagnostics.Debug.Write($"Izuzetak -> {e.StackTrace}");
                 }
 
             });
