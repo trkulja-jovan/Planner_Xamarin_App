@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using PlannerMob.Entities.Mettings;
+using PlannerMob.Pages;
 using PlannerMob.Refit.DTO.Meeting;
 using PlannerMob.Refit.Interfaces;
 using PlannerMob.Refit.ServiceImplementation;
@@ -22,7 +23,7 @@ namespace PlannerMob
         }
         protected async override void OnStart()
         {
-            await Shell.Current.GoToAsync("//registrationPage");
+            await Shell.Current.GoToAsync($"//{nameof(RegistrationPage)}");
         }
 
         protected override void OnSleep()

@@ -120,13 +120,13 @@ namespace PlannerMob.ViewModels
                 {
                     try
                     {
-                        if (taskResult.IsFaulted || taskResult.Exception.InnerExceptions.Any())
+                        if (taskResult.IsFaulted)
                         {
                             CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
                             return;
                         }
 
-                        if (taskResult.Result == null || !taskResult.Result.Success)
+                        if (taskResult.Result == null)
                         {
                             CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
                             return;

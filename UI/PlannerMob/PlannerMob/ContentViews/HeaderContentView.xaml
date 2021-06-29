@@ -22,10 +22,10 @@ VerticalOptions="FillAndExpand">
             </Grid.RowDefinitions>
 
             <Image Aspect="AspectFill"
-Source="gradient.jpeg"
-Grid.ColumnSpan="5"
-Grid.RowSpan="4"
-Opacity="0.6" />
+                   Source="gradient.jpeg"
+                   Grid.ColumnSpan="5"
+                   Grid.RowSpan="4"
+                   Opacity="0.6" />
             <Image Source="userimage.png" HeightRequest="80" WidthRequest="80" 
 Grid.Column="1" 
 Grid.Row="1"
