@@ -9,11 +9,19 @@ namespace PlannerMob.Entities
     {
         public Attendee(){}
 
-        public ActionAttendee Action { get; set; }
+        public double TotalTime { get; set; }
 
-        public DateTime TimeStamp { get; set; }
+        public int Percentage { get; set; }
 
-        public string ImageUrl { get; set; }
+        public static Attendee Create(string username, double totalTime, int percentage)
+        {
+            return new Attendee
+            {
+                Username = username,
+                TotalTime = totalTime,
+                Percentage = percentage
+            };
+        }
     }
 
     public enum ActionAttendee

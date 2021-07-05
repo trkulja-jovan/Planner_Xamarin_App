@@ -14,7 +14,6 @@ namespace PlannerMob.ViewModels
     public class HomePageViewModel : BaseViewModel
     {
         private ObservableCollection<Meeting> _selectedMeetings = new();
-        private List<Meeting> _allMeetings = new();
 
         private readonly IMeetingService _meetingService;
 
@@ -44,11 +43,11 @@ namespace PlannerMob.ViewModels
                     return;
                 }
 
-                SelectedMeetings.Clear();
+                //SelectedMeetings.Clear();
 
-                (from meeting in SelectedMeetings
-                 where meeting.Start >= SelectedStartDate && meeting.End <= SelectedEndDate
-                 select meeting)?.ToList().ForEach(meeting => SelectedMeetings.Add(meeting));
+                //(from meeting in SelectedMeetings
+                // where meeting.Start >= SelectedStartDate && meeting.End <= SelectedEndDate
+                // select meeting)?.ToList().ForEach(meeting => SelectedMeetings.Add(meeting));
             });
         }
 
@@ -94,7 +93,7 @@ namespace PlannerMob.ViewModels
         {
             Device.InvokeOnMainThreadAsync(() =>
             {
-                _ = LoadAllMeetings();
+                LoadAllMeetings();
                 SelectedStartDate = DateTime.Now;
                 SelectedEndDate = DateTime.Now;
             });
@@ -111,41 +110,63 @@ namespace PlannerMob.ViewModels
             LabelCaptionText = $"{timeSpan.Days}" + " " + text;
         }
 
-        private async Task LoadAllMeetings()
+        private void LoadAllMeetings()
         {
-            _allMeetings.Clear();
-            await _meetingService.GetMeetings().ContinueWith(taskResult =>
+            SelectedMeetings.Clear();
+            SelectedMeetings.Add(new Meeting
             {
-                Device.InvokeOnMainThreadAsync(() =>
-                {
-                    try
-                    {
-                        if (taskResult.IsFaulted)
-                        {
-                            CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
-                            return;
-                        }
-
-                        if (taskResult.Result == null)
-                        {
-                            CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
-                            return;
-                        }
-
-                        taskResult.Result.Meetings.ForEach(meetingDto =>
-                        {
-                            var meeting = App.Mapper.Map<Meeting>(meetingDto);
-                            _allMeetings.Add(meeting);
-                        });
-
-                    }
-                    catch (Exception e)
-                    {
-                        CrossToastPopUp.Current.ShowToastError(e.ToString());
-                        return;
-                    }
-                });
+                AtendeeCount = 9,
+                Start = DateTime.Parse("2020-09-24T11:59:01"),
+                End = DateTime.Parse("2020-09-24T12:43:50"),
+                Id = Guid.Parse("9150d8ec-3b8e-490d-543a-08d93b449d23"),
+                Name = "meet",
+                Organizer = "znedeljkovic.b518.17@one.pmf.uns.ac.rs"
             });
+            //var meetings = _meetingService.GetMeetings();
+            //if(meetings == null)
+            //{
+            //    CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
+            //    return;
+            //}
+
+            //meetings.ForEach(meetingDto =>
+            //{
+            //    var meeting = App.Mapper.Map<Meeting>(meetingDto);
+            //    SelectedMeetings.Add(meeting);
+            //});
+
+            //await _meetingService.GetMeetings().ContinueWith(taskResult =>
+            //{
+            //    Device.InvokeOnMainThreadAsync(() =>
+            //    {
+            //        try
+            //        {
+            //            if (taskResult.IsFaulted)
+            //            {
+            //                CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
+            //                return;
+            //            }
+
+            //            if (taskResult.Result == null)
+            //            {
+            //                CrossToastPopUp.Current.ShowToastError("Došlo je do greške prilikom učitavanja sastanka!");
+            //                return;
+            //            }
+
+            //            taskResult.Result.Meetings.ForEach(meetingDto =>
+            //            {
+            //                var meeting = App.Mapper.Map<Meeting>(meetingDto);
+            //                _allMeetings.Add(meeting);
+            //            });
+
+            //        }
+            //        catch (Exception e)
+            //        {
+            //            CrossToastPopUp.Current.ShowToastError(e.ToString());
+            //            return;
+            //        }
+            //    });
+            //});
         }
     }
 }

@@ -23,5 +23,10 @@ namespace PlannerMob.Pages
         }
 
         private async void Button_Clicked(object sender, EventArgs e) => await Shell.Current.GoToAsync($"{nameof(AttendeeView)}");
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"{nameof(AttendeeView)}");
+        }
     }
 }

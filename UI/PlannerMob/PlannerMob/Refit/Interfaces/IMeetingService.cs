@@ -8,6 +8,6 @@ namespace PlannerMob.Refit.Interfaces
 {
     public interface IMeetingService
     {
-        public Task<MeetingResponse> GetMeetings();
+        public List<MeetingDto> GetMeetings();
     }
 }
